@@ -141,7 +141,7 @@ void keyScan() {
                 //it'll remain as false. At the end of the scan we just set the global
                 //func bool to whatever the scan local one is.
 
-                //we'll just check the base layer to avoid in sticky situations
+                //we'll just check the base layer to avoid any sticky situations
                 if(keyMap[row][col] == KEY_FUNCTION && keyState[row][col] == KEY_PRESSED) {
                   scanFuncMode = true;
                 }
@@ -152,7 +152,7 @@ void keyScan() {
         pinMode(rowPins[row], INPUT);
   }
   //lastly if the scanFuncMode is different from the global func mode, then do the keystate reset, 
-  //and set the global func mode to the scan func mode.
+  //then set the global func mode to the scan func mode.
   if(funcMode != scanFuncMode) {
     resetKeyStates(funcMode);
     funcMode = scanFuncMode;
